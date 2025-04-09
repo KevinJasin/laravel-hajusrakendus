@@ -1,47 +1,77 @@
-# Kirjeldus
+# Laravel Hajusrakendus
 
-Kõik ülesanded võib lahendada eraldi või ühe tervikliku projektina.
-Valmis töö(d) tuleb laadida zone'i ja kood githubi/gitlabi vms.
+See on Laravelil baseeruv hajusrakendus, mis sisaldab mitmeid funktsionaalsusi nagu ilmateade, kaardirakendus, blogi koos kommentaaridega, e-pood ostukorviga ning kasutaja lemmikteemade haldus koos isetehtud API-ga.
 
-# Hajusrakenduse ülesanded
+## Ülesehitus
 
-## 1. Vabalt valitud ilma API
+Projektil on mitu iseseisvat moodulit:
 
--   Ühendada API-ga ja saada info (näiteks formaat JSON)
--   Andmed cache-ida
--   Väljastada info (võimalusel koos pildiga)
--   Näiteks: https://openweathermap.org/price
+- **Ilmateenus**: OpenWeather API kaudu saab otsida ja kuvada eri linnade ilmaandmeid koos visuaalsete ikoonidega.
+- **Kaardirakendus**: Leafleti ja OpenStreetMapi abil saab kaardile lisada markereid, neid vaadata, muuta ja kustutada.
+- **Blogi**: Kasutajad saavad luua blogipostitusi ja kommenteerida. Admin saab kommentaare kustutada.
+- **E-pood**: Toodete kuvamine, ostukorv, koguse muutmine ja kassaprotsess.
+- **Lemmikteema API**: Kasutaja saab lisada oma lemmikteema, mida kuvatakse nii veebilehel kui ka JSON API kaudu koos limiidiga. Andmeid cache’itakse.
 
-## 2. Maps API
- Vabalt valitud kaardi rakenduse liidestus.
--   Luua tabel markers (id, name, latitude, longitude, description, added, edited)
--   CRUD markerile. (name, latitude, longitude, description)
--   Luua kaardi vaade
--   Lisada markerid kaardile-ile
--   Click mapil võimaldab salvestada markerit
--   Juhendid:
-  -   https://developers.google.com/maps/documentation/javascript/tutorial
-  -   https://radar.com/documentation/maps/maps
+## Kasutatud tehnoloogiad
 
-## 3. Laravel - projekti loomine Uudised. Kommentaaride CRUD
+- **Laravel 10**
+- **PHP 8+**
+- **Tailwind CSS** (Laravel Breeze UI)
+- **SQLite / MySQL** (sõltuvalt seadistusest)
+- **OpenWeather API**
+- **Leaflet.js + OpenStreetMap**
+- **Git + GitHub**
 
--   Luua project Blog
--   Luua autentimine
--   Luua migration create_blog_table (title, description)
--   CRUD blog-ile
--   Võimalus lisada kommentaare. Ning saab kustutada (admin).
+## Koodi käivitamise juhised
 
-## 4. Pood - luua ostukorv
+1. **Projekti kloonimine:**
+```bash
+git clone git@github.com:KevinJasin/laravel-hajusrakendus.git
+cd laravel-hajusrakendus
+```
 
--   Luua toote valiku leht (vähemalt 9 toodet, saab valida kogust)
--   Luua ostukorv. Saab muuta koguseid ja kustutada tooteid
--   Luua maksmise leht (eesnimi, perenimi, email, telefon), lingid mine maksma
--   Peale makse sooritamist, vastavalt tulemusele kas tühjendada ostukorv või mitte.
+2. **Sõltuvuste paigaldamine:**
+```bash
+composer install
+npm install && npm run dev
+```
 
-## 5. Vabalt valida lemmik teema ja luua sellele API
+3. **Keskkonnamuutujad:**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
--   Luua tabel my_favorite_subject (id, title, image, description, +2 teema kohast välja)
--   Luua ankeet (title, description, image, +2 teema kohast välja)
--   Luua väljund sisestatud teemades. (JSON) Väljund peab sisaldame vähemalt ühte parameetrit (limit)
--   Luua leht, mis loeb kaas õpilaste teemasid.
--   Cache iga teema kohta
+4. **Andmebaasi seadistamine:**
+- Veendu, et `.env` failis on õige DB seadistus.
+```bash
+php artisan migrate --seed
+```
+
+5. **Serveri käivitamine:**
+```bash
+php artisan serve
+```
+
+6. **Ligipääs rakendusele:**
+- Ava brauseris: `http://localhost:8000`
+
+## Kasutajakontod (testimiseks)
+
+- **Admin:**
+  - Email: admin@example.com
+  - Parool: password
+
+- **Kasutaja:**
+  - Email: test@example.com
+  - Parool: password
+
+## Lisainfo
+
+- Markerite lisamine toimub kaardil klõpsates.
+- Ilmateate leht võimaldab otsida linna nime järgi.
+- Blogi postitustele saab lisada kommentaare.
+- E-poes on vähemalt 9 toodet.
+- Lemmikteemade API asub: `/api/subjects?limit=3`
+
+---
