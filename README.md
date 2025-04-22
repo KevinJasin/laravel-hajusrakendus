@@ -76,5 +76,5 @@ php artisan serve
 
 ---
 
-Valmis projekt vastab kõigile hindamiskriteeriumitele ja on kasutusvalmis.
-
+Live Project Link
+https://hajusrakendus.tak22jasin.itmajakas.ee/
