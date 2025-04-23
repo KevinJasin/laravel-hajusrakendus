@@ -78,3 +78,18 @@ php artisan serve
 
 Live Project Link
 https://hajusrakendus.tak22jasin.itmajakas.ee/
+
+Weather
+https://hajusrakendus.tak22jasin.itmajakas.ee/weather
+
+Map
+https://hajusrakendus.tak22jasin.itmajakas.ee/map
+
+Blogs
+https://hajusrakendus.tak22jasin.itmajakas.ee/blogs
+
+Shop
+https://hajusrakendus.tak22jasin.itmajakas.ee/shop
+
+Subjects
+https://hajusrakendus.tak22jasin.itmajakas.ee/subjects
