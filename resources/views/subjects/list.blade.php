@@ -1,8 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
-            📚 Favorite Subjects
-        </h2>
+        <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
+                📚 Favorite Subjects
+            </h2>
+            <a href="{{ route('monsters.index') }}"
+               class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded shadow transition duration-200">
+                🧟 View Monster API
+            </a>
+        </div>
     </x-slot>
 
     <div class="max-w-6xl mx-auto py-8 px-4 space-y-6">
