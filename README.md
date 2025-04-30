@@ -73,6 +73,7 @@ php artisan serve
 - Blogi postitustele saab lisada kommentaare.
 - E-poes on vähemalt 9 toodet.
 - Lemmikteemade API asub: `/api/subjects?limit=3`
+- Card number 4242 4242 4242 4242
 
 ---
 
